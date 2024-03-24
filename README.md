@@ -1,5 +1,7 @@
 # dwl - dwm for Wayland
 
+**Note: I have addded the centeredmaster, autostart and ipc patches to suit my own needs.
+
 Join us on our IRC channel: [#dwl on Libera Chat]  
 Or on our [Discord server].
 
