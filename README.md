@@ -1,6 +1,8 @@
 # dwl - dwm for Wayland
 
 **Note: I have addded the centeredmaster, autostart and ipc patches to suit my own needs.
+I also reverted this commit: https://codeberg.org/dwl/dwl/commit/25db045392, to fix the issue
+with Steam freezing up the system.
 
 Join us on our IRC channel: [#dwl on Libera Chat]  
 Or on our [Discord server].
