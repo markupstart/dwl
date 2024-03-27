@@ -1,3 +1,5 @@
+Using this https://codeberg.org/sewn/dwl/src/branch/bar, which add bar to dwl, also using centeredmaster and autostart patches.
+
 # dwl - dwm for Wayland
 
 Join us on our IRC channel: [#dwl on Libera Chat]  
