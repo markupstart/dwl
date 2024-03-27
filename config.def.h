@@ -25,6 +25,7 @@ static pixman_color_t selbarfg  = { 0xeeee, 0xeeee, 0xeeee, 0xffff };
 static pixman_color_t selbarbg  = { 0x0000, 0x5555, 0x7777, 0xffff };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
+#define TAGCOUNT (9)
 static char *tags[] = { "🌐","📁","","💬","","📷","","📜","🪶" };
 
 /* logging */
