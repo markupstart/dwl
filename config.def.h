@@ -20,6 +20,7 @@ static const char *const autostart[] = {
         "dunst", NULL,
         "copyq", "--start-server", NULL,
         "hyprpaper", NULL,
+        "dwlb", "-configured-status", NULL,
         NULL /* terminate */
 };
 
@@ -136,10 +137,9 @@ static const char *discordcmd[] = {"discord", NULL };
 static const char *gamingcmd[] = {"lutris", NULL };
 static const char *recordingcmd[] = {"obs", NULL };
 static const char *thunarcmd[] = {"thunar", NULL };
-static const char *gpucmd[] = {"/home/mark/.local/bin/gpu", NULL };
-static const char *killbarcmd[] = {"/home/mark/.local/bin/killbar", NULL };
 static const char *barcmd[] = {"waybar", NULL };
 static const char *grimcmd[] = {"grim", NULL };
+static const char *gpucmd[] = {"-SIGUSR1 gpu-screen-recorder", NULL };
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -152,8 +152,7 @@ static const Key keys[] = {
 	{ MODKEY, 		     XKB_KEY_o,    	 spawn,          {.v = recordingcmd} },
 	{ MODKEY, 		     XKB_KEY_t,    	 spawn,          {.v = thunarcmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_G,    	 spawn,          {.v = gpucmd} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_B,          spawn,	         {.v = barcmd} },
-	{ MODKEY,                    XKB_KEY_b,          spawn,          {.v = killbarcmd} },
+	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0}}, 
 	{ MODKEY,                    XKB_KEY_Print,      spawn,          {.v = grimcmd} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = -1} },
