@@ -379,8 +379,10 @@ static inline void
 client_set_suspended(Client *c, int suspended)
 {
 #ifdef XWAYLAND
-	if (client_is_x11(c))
-		return;	
+	if (client_is_x11(c)) {
+		wlr_xwayland_surface_set_withdrawn(c->surface.xwayland, suspended);
+		return;
+	}
 #endif
 
 	wlr_xdg_toplevel_set_suspended(c->surface.xdg->toplevel, suspended);
