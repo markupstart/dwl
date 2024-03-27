@@ -41,18 +41,19 @@ static const char *const autostart[] = {
 
 
 static const Rule rules[] = {
-	/* app_id     title       tags mask     isfloating   monitor */
+	/* app_id     title       tags mask     isfloating   monitor scratchkey */
 	/* examples:
 	{ "Gimp",     NULL,       0,            1,           -1 },
 	*/
-	{ "Gimp",     NULL,       0,            1,           -1 },
-	{ "firefox",  NULL,       0,	        0,           -1 },
-	{ "Steam",    NULL,       0,	        1,           -1 },
-	{ "Sign in to Steam",  NULL,       0,	       1,           -1 },
-	{ "steam_proton", NULL,       0,	1,           -1 },
-	{ "Gimp-2.10",    NULL,       0,	1,           -1 },
-	{ "Star Citizen",    NULL,    0,	1,           -1 },
-	{ "Launcher",    NULL,        0,        1,           -1 },
+	{ "Gimp",     NULL,       0,            1,           -1, 0 },
+	{ "firefox",  NULL,       0,       0,           -1,      0  },
+	{ "Steam",    NULL,       0,	        1,           -1, 0 },
+	{ "Sign in to Steam",  NULL,       0,   1,           -1, 0 },
+	{ "steam_proton", NULL,       0,	1,           -1, 0 },
+	{ "Gimp-2.10",    NULL,       0,	1,           -1, 0 },
+	{ "Star Citizen",    NULL,    0,	1,           -1, 0 },
+	{ "Launcher",    NULL,        0,        1,           -1, 0 },
+	{  NULL , "Qalculate!",    0,        1,           -1, 's' },
 };
 
 /* layout(s) */
@@ -152,6 +153,9 @@ static const char *thunarcmd[] = {"thunar", NULL };
 static const char *grimcmd[] = {"grim", NULL };
 static const char *gpucmd[] = {"-SIGUSR1 gpu-screen-recorder", NULL };
 
+/* named scratchpads - First arg only serves to match against key in rules*/
+static const char *scratchpadcmd[] = { "s", "qalculate-gtk", NULL };
+
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
@@ -164,6 +168,9 @@ static const Key keys[] = {
 	{ MODKEY, 		     XKB_KEY_t,    	 spawn,          {.v = thunarcmd} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_G,    	 spawn,          {.v = gpucmd} },
 	{ MODKEY,                    XKB_KEY_Print,      spawn,          {.v = grimcmd} },
+	{ MODKEY,                    XKB_KEY_x,          togglescratch,  {.v = scratchpadcmd } },
+	// { MODKEY,                    XKB_KEY_x,      focusortogglescratch, {.v = scratchpadcmd } },
+	// { MODKEY,                    XKB_KEY_x,      focusortogglematchingscratch, {.v = scratchpadcmd } },
 	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = -1} },
