@@ -1,4 +1,4 @@
-Using this https://codeberg.org/sewn/dwl/src/branch/bar, which add bar to dwl, also using centeredmaster, autostart,namedscratchpad and movestack patches. I have also reverted this commit: https://codeberg.org/dwl/dwl/commit/25db045392, so steam doesn't lock up the system when starting.
+Using this https://codeberg.org/sewn/dwl/src/branch/bar, which add bar to dwl, also using centeredmaster, autostart,namedscratchpad, winview and movestack patches. I have also reverted this commit: https://codeberg.org/dwl/dwl/commit/25db045392, so steam doesn't lock up the system when starting.
 
 # dwl - dwm for Wayland
 
