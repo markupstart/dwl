@@ -377,6 +377,7 @@ static void updatetitle(struct wl_listener *listener, void *data);
 static void urgent(struct wl_listener *listener, void *data);
 static void view(const Arg *arg);
 static void virtualkeyboard(struct wl_listener *listener, void *data);
+static void winview(const Arg *a);
 static void virtualpointer(struct wl_listener *listener, void *data);
 static Monitor *xytomon(double x, double y);
 static void xytonode(double x, double y, struct wlr_surface **psurface,
@@ -3412,6 +3413,17 @@ virtualkeyboard(struct wl_listener *listener, void *data)
 
 	/* Add the new keyboard to the group */
 	wlr_keyboard_group_add_keyboard(vkb_group.wlr_group, &keyboard->keyboard);
+}
+
+void
+winview(const Arg *a) {
+	Arg b = {0};
+	Client *sel = focustop(selmon);
+	if(!sel)
+		return;
+	b.ui = sel -> tags;
+	view(&b);
+	return;
 }
 
 void
